@@ -16,6 +16,12 @@ Terminal recording of the real matcher evaluation, including the two genuine mis
 
 ![Terminal recording of the matcher evaluation](docs/demo.gif)
 
+The repo also ships a small real FastAPI + static-HTML UI (`Llm Rag Function Api.py`, port 8080) around the same keyword matcher — typing "check the cpu usage" correctly resolves to `get_cpu_usage` and actually runs it:
+
+![UI walkthrough of the function execution API](docs/demo_ui.gif)
+
+Found and fixed a real bug getting this running: the app served `static/index.html` and mounted a `static/` directory that was never committed to the repo (only the root-level `index.html` was) — a fresh clone couldn't start at all. Added `static/index.html` (a copy of the existing root `index.html`, which the app also serves for local/manual use) so `StaticFiles` has something to mount.
+
 ## Evaluation
 
 `eval_matcher.py` runs the real, unmodified matching function against 20 hand-labeled prompts:
