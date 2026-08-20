@@ -10,6 +10,12 @@ The previous version of this README described an "LLM-powered RAG system" with "
 - `find_best_function()`: splits the prompt into words, intersects with each function's keyword set unioned with its description's words, and returns the function with the highest overlap count.
 - No LLM call, no embedding, no vector store, no RAG anywhere in the code. This is corrected here rather than left standing.
 
+## Demo
+
+Terminal recording of the real matcher evaluation, including the two genuine misses:
+
+![Terminal recording of the matcher evaluation](docs/demo.gif)
+
 ## Evaluation
 
 `eval_matcher.py` runs the real, unmodified matching function against 20 hand-labeled prompts:
